@@ -28,7 +28,8 @@
                 android:visibility="invisible"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/ic_online" />
+                android:background="@drawable/ic_online"
+                android:layout_marginLeft="50dp" />
         </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,6 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="0dp"
-        android:background="@drawable/ic_grey_line"/>
+        android:background="@drawable/ic_grey_line"
+        android:layout_marginLeft="0dp" />
 
 </LinearLayout>
