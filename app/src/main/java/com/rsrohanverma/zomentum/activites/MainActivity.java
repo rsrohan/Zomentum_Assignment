@@ -53,9 +53,17 @@ public class MainActivity extends AppCompatActivity {
         unreads.add("4");
         unreads.add("2");
         unreads.add("1");
+        ArrayList<String> dps = new ArrayList<>();
+        dps.add("https://cdn.statically.io/img/i.pinimg.com/originals/b8/65/71/b8657186950ab945c151481e0829047d.png");
+        dps.add("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcX3cu7MWvad2OKHE_dE3aieGx-3cbERqKsQ&usqp=CAU");
+        dps.add("https://images-na.ssl-images-amazon.com/images/I/41ONa5HOwfL._SX425_.jpg");
+        dps.add("https://data.whicdn.com/images/315751848/original.jpg");
+        dps.add("https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/145157664/original/f51316a0de362f9fd056040d0fbc578bafcdf540/draw-cartoon-gaming-social-media-profile-picture.jpg");
+        dps.add("https://data.whicdn.com/images/320568065/original.jpg");
+        dps.add("https://image.freepik.com/free-vector/man-profile-cartoon_18591-58482.jpg");
         for (int i =0;i<7;i++)
         {
-            Chatroom chatroom = new Chatroom(names.get(i), i+"", null, i+"", i+"", (System.currentTimeMillis()-(i*500000))+"", lastMessages.get(i), unreads.get(i));
+            Chatroom chatroom = new Chatroom(names.get(i), i+"", dps.get(i), i+"", i+"", (System.currentTimeMillis()-(i*500000))+"", lastMessages.get(i), unreads.get(i));
             mChatrooms.add(chatroom);
         }
         mChatroomRecyclerAdapter = new ChatroomRecyclerAdapter(getApplicationContext(), mChatrooms);
