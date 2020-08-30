@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/app_background"
+    tools:context=".activites.ChatActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:elevation="4dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:id="@+id/iv_back"
+            android:src="@drawable/ic_iv_back" />
+
+        <TextView
+            android:id="@+id/ChatUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/stopChat"
+            android:layout_toEndOf="@id/iv_back"
+            android:gravity="center"
+            android:text="Rohan"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_toLeftOf="@+id/stopChat"
+            android:layout_toRightOf="@id/iv_back" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/stopChat"
+            android:visibility="invisible"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_close_icon"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/typeMsg"
+        android:layout_below="@id/toolbar"
+        android:layout_marginHorizontal="12dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_chat_messages" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="4dp"
+        android:id="@+id/typeMsg">
+
+        <EditText
+            android:id="@+id/iv_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginVertical="8dp"
+            android:layout_toStartOf="@id/iv_send_text"
+            android:background="@drawable/ic_write_text"
+            android:hint="Write your message..."
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/iv_send_text" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_send_text"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/iv_send_text"
+            android:layout_marginLeft="12dp"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+</RelativeLayout>
