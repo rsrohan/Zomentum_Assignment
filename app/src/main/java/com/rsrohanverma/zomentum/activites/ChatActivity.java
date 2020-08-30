@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.rsrohanverma.zomentum.R;
 import com.rsrohanverma.zomentum.adapters.ChatMessageRecyclerAdapter;
 import com.rsrohanverma.zomentum.classes.ChatMessage;
@@ -40,21 +41,18 @@ public class ChatActivity extends AppCompatActivity {
     private ChatMessageRecyclerAdapter mChatMessageRecyclerAdapter;
 
     private ArrayList<ChatMessage> mMessages = new ArrayList<>();
-    private Set<String> mMessageIds = new HashSet<>();
-    private ArrayList<User> mUserList = new ArrayList<>();
+
     private ImageView sendButton;
     private TextView chatuserName;
-    private String chatroomId;
-    private String s;
+
     private String clientName, clientDp;
-    private Chatroom chatroom;
-    private String astroId;
-    private boolean timerOn = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         iv_back = findViewById(R.id.iv_back);
+        CircleImageView dp = findViewById(R.id.stopChat);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,12 +65,11 @@ public class ChatActivity extends AppCompatActivity {
         sendButton = findViewById(R.id.iv_send_text);
         chatuserName = findViewById(R.id.ChatUserName);
 
-        chatroom = new Chatroom();
         usersId = getIntent().getStringExtra("uuid");
-        chatroomId = getIntent().getStringExtra("cid");
         clientName = getIntent().getStringExtra("uname");
         clientDp = getIntent().getStringExtra("udp");
         chatuserName.setText(clientName);
+        Glide.with(getApplicationContext()).load(clientDp).into(dp);
         initChatroomRecyclerView();
     }
 
