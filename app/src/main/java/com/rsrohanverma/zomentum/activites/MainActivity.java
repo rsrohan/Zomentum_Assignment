@@ -18,7 +18,6 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Chatroom> mChatrooms = new ArrayList<>();
-    private Set<String> mChatroomIds = new HashSet<>();
     private ChatroomRecyclerAdapter mChatroomRecyclerAdapter;
     private RecyclerView mChatroomRecyclerView;
     @Override
