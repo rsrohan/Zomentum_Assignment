@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -43,6 +44,7 @@ public class ChatActivity extends AppCompatActivity {
     private ArrayList<ChatMessage> mMessages = new ArrayList<>();
 
     private ImageView sendButton;
+    private CircleImageView stopButton;
     private TextView chatuserName;
 
     private String clientName, clientDp;
@@ -64,6 +66,7 @@ public class ChatActivity extends AppCompatActivity {
         mChatMessageRecyclerView = findViewById(R.id.rv_chat_list);
         sendButton = findViewById(R.id.iv_send_text);
         chatuserName = findViewById(R.id.ChatUserName);
+        stopButton = findViewById(R.id.stopChat);
 
         usersId = getIntent().getStringExtra("uuid");
         clientName = getIntent().getStringExtra("uname");
@@ -71,6 +74,14 @@ public class ChatActivity extends AppCompatActivity {
         chatuserName.setText(clientName);
         Glide.with(getApplicationContext()).load(clientDp).into(dp);
         initChatroomRecyclerView();
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ChatActivity.this, MainActivity.class);
+                ChatActivity.this.startActivity(i);
+            }
+        });
+
     }
 
     private void initChatroomRecyclerView() {
